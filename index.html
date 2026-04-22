@@ -106,6 +106,57 @@
   .intro p{margin:0;color:var(--ink-soft);font-size:16px}
   .intro .sig{margin-top:12px;color:var(--muted);font-size:13.5px}
 
+  /* Video CTA (Shorts 링크 강조용) */
+  .video-cta{
+    display:flex;align-items:center;gap:16px;
+    margin-top:18px;padding:16px 20px;
+    background:linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 55%, var(--blue-500) 100%);
+    border-radius:var(--rad);
+    border:1px solid rgba(184,226,61,.35);
+    box-shadow:0 8px 24px rgba(20,42,114,.22), inset 0 0 0 1px rgba(255,255,255,.04);
+    color:#fff;text-decoration:none;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    position:relative;overflow:hidden;
+  }
+  .video-cta::before{
+    content:"";position:absolute;inset:-40% -20% auto auto;
+    width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(closest-side, rgba(184,226,61,.22), transparent 70%);
+    pointer-events:none;
+  }
+  .video-cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 34px rgba(20,42,114,.32), inset 0 0 0 1px rgba(255,255,255,.06);
+    border-color:rgba(184,226,61,.7);
+    text-decoration:none;
+  }
+  .video-cta .play{
+    flex:0 0 auto;
+    width:44px;height:44px;border-radius:50%;
+    background:var(--lime);color:var(--blue-900);
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:16px;font-weight:800;
+    box-shadow:0 0 0 6px rgba(184,226,61,.15);
+  }
+  .video-cta .txt{flex:1 1 auto;min-width:0;line-height:1.35}
+  .video-cta .txt .ttl{
+    display:block;font-size:15.5px;font-weight:700;color:#fff;letter-spacing:-.01em;
+  }
+  .video-cta .txt .sub{
+    display:block;margin-top:2px;font-size:12.5px;color:#c6d3f0;font-weight:500;letter-spacing:.02em;
+  }
+  .video-cta .arrow{
+    flex:0 0 auto;font-size:18px;color:var(--lime);
+    transition:transform .2s ease;
+  }
+  .video-cta:hover .arrow{transform:translateX(4px)}
+  @media(max-width:480px){
+    .video-cta{padding:14px 16px;gap:12px}
+    .video-cta .play{width:38px;height:38px;font-size:14px}
+    .video-cta .txt .ttl{font-size:14.5px}
+    .video-cta .txt .sub{font-size:11.5px}
+  }
+
   section{margin:64px 0;scroll-margin-top:20px}
   .eyebrow{
     display:inline-block;font-size:12px;font-weight:700;letter-spacing:.18em;
@@ -319,7 +370,14 @@
 
   <div class="intro">
     <p>👋 안녕하세요, <b>김건휘 · 김동훈 · 신민규</b> 인턴입니다. 이번 FDI 2026 심포지엄에서 진행된 조규곤 대표님의 키노트 <b>「Sustainable AI Transformation」</b>을 세션에 참석하지 못하신 분들도 핵심 흐름을 따라가실 수 있도록 정리해 보았습니다.</p>
-    <p>🎬 인트로 동영상은 <a href="https://youtube.com/shorts/UUTnF8tY2h8?feature=share" target="_blank" rel="noopener">여기 링크</a>에서 보실 수 있습니다.</p>
+    <a class="video-cta" href="https://youtube.com/shorts/UUTnF8tY2h8?feature=share" target="_blank" rel="noopener">
+      <span class="play" aria-hidden="true">▶</span>
+      <span class="txt">
+        <span class="ttl">인트로 동영상으로 먼저 만나보기</span>
+        <span class="sub">YouTube Shorts · FDI 2026 · Sustainable AI Transformation</span>
+      </span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
   </div>
 
   <!-- 0. 용어 설명 -->
